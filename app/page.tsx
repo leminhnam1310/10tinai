@@ -268,7 +268,8 @@ const buttonPrimary = `   relative overflow-hidden
   hover:scale-105
   `;
 
-const buttonGlass = `  relative overflow-hidden
+const buttonGlass = `
+  relative overflow-hidden
   backdrop-blur-xl
   border
   transition-all duration-300
@@ -279,27 +280,19 @@ const buttonGlass = `  relative overflow-hidden
   active:scale-95
   ${
     darkMode
-      ?`
-bg-white/10
-border-white/10
-hover:bg-white/20
-      :
-bg-white/60
-border-black/10
-hover:bg-white/80
-text-slate-900
-`   }
-  `;
+      ? "bg-white/10 border-white/10 hover:bg-white/20 text-white"
+      : "bg-white/60 border-black/10 hover:bg-white/80 text-slate-900"
+  }
+`;
 
 return (
-<div
-className={`min-h-screen bg-cover bg-center transition-all duration-700 overflow-hidden ${
-        darkMode
-          ? "text-white"
-          : "text-slate-900"
-      }`}
-style={{
-backgroundImage: `         linear-gradient(
+  <div
+    className={`min-h-screen bg-cover bg-center transition-all duration-700 overflow-hidden ${
+      darkMode ? "text-white" : "text-slate-900"
+    }`}
+    style={{
+      backgroundImage: `
+        linear-gradient(
           ${
             darkMode
               ? "rgba(0,0,0,0.72), rgba(0,0,0,0.82)"
@@ -308,9 +301,8 @@ backgroundImage: `         linear-gradient(
         ),
         url(${background})
       `,
-}}
-
-
+    }}
+  >
   {/* FLOATING LIGHTS */}
 
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -707,4 +699,3 @@ backgroundImage: `         linear-gradient(
 
 );
 }
-
